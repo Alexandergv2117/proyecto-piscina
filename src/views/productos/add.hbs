@@ -1,0 +1,37 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3>Añadir Producto</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/productos/add" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="nombre" placeholder="Nombre producto" autofocus>
+                         </div>
+                        <div class="form-group">
+                            <h3 class="h6">Categoria</h3>
+                            <select name="categoria" class="form-control">
+                                <option>Limpieza</option>
+                                <option>Quimicos</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" name="precio" placeholder="Precio" step="0.01">
+                         </div>
+                         <div class="form-group">
+                            <input type="number" class="form-control" name="stock" placeholder="Stock">
+                         </div>
+                        <div class="form-group">
+                            <textarea name="descripcion" rows="2" class="form-control" placeholder="Descripcion"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">Añadir</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

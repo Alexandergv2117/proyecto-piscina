@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+body {
+    background: url('/img/background.png');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+.pantalla-inicio-content{
+    color: #fbfcfd;
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+.pantalla-inicio-content .pantalla-inicio-text-1{
+    font-size: 27px;
+}
+.pantalla-inicio-content .pantalla-inicio-text-2{
+    font-size: 75px;
+    font-weight: 600;
+    margin-left: -3px;
+}
+.pantalla-inicio-content .pantalla-inicio-text-3{
+    font-size: 40px;
+    margin: 5px 0;
+}
+.pantalla-inicio-content .pantalla-inicio-text-3 span{
+    color: crimson;
+    font-weight: 500;
+}
+.pantalla-inicio-menu{
+    display: block;
+    width: 25px;
+    margin: 40px auto 0;
+    cursor: pointer;
+}
+.pantalla-inicio-social-links{
+    width: 100%;
+    height: 100px;
+    color: #fbfcfd;
+    position: absolute; 
+    left: 0px; 
+    right: 0px; 
+    bottom: 0px; 
+    height: 100px; 
+    z-index: 0;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.pantalla-inicio-iconBx{
+    width: 35px;
+    margin: 5px auto;
+    padding: 0 25px 0 25px;
+    cursor: pointer;
+    font-size: 3.5em;
+    color: #fbfcfd;
+    opacity: 1;
+}
+.pantalla-inicio-iconBx:hover{
+    opacity: .5;
+}
+.pantalla-inicio-bubbles img{
+    opacity: 0;
+    width: 100px;
+    animation: bubble 7s linear infinite;
+}
+.pantalla-inicio-bubbles {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
+    opacity: 1;
+
+}
+@keyframes bubble {
+    0%{
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-80vh);
+        opacity: 0;
+    }
+}
+.pantalla-inicio-bubbles img:nth-child(1){
+    animation-delay: 2s;
+    width: 25px;
+}
+.pantalla-inicio-bubbles img:nth-child(2){
+    animation-delay: 1s;
+}
+.pantalla-inicio-bubbles img:nth-child(3){
+    animation-delay: 3s;
+    width: 15px;
+}
+.pantalla-inicio-bubbles img:nth-child(4){
+    animation-delay: 4.5s;
+}
+.pantalla-inicio-bubbles img:nth-child(5){
+    animation-delay: 3s;
+}
+.pantalla-inicio-bubbles img:nth-child(6){
+    animation-delay: 6s;
+    width: 20px;
+}
+.pantalla-inicio-bubbles img:nth-child(7){
+    animation-delay: 7s;
+    width: 35px;
+}
+
+
+@media (max-width: 480px) {
+    .pantalla-inicio-content .pantalla-inicio-text-1{
+        font-size: 18px;
+    }
+    .pantalla-inicio-content .pantalla-inicio-text-2{
+        font-size: 55px;
+        font-weight: 500;
+    }
+    .pantalla-inicio-content .pantalla-inicio-text-3{
+        font-size: 30px;
+        margin: 5px 0;
+    }
+}
