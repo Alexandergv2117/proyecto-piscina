@@ -7,7 +7,8 @@ USE piscina;
 
 CREATE TABLE Rol (
     idRol INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    rol ENUM('Supervisor', 'administrador', 'trabajador', 'cliente') NOT NULL
+    rol ENUM('Supervisor', 'administrador', 'trabajador', 'cliente') NOT NULL,
+    estado enum('Activo','Desactivado') NOT NULL
 );
 
 CREATE TABLE Direccion (
@@ -32,7 +33,6 @@ CREATE TABLE User(
     telefono VARCHAR(10) NOT NULL,
     email VARCHAR(250) NOT NULL,
     password VARCHAR(250) NOT NULL, 
-    estado enum('Activo','Desactivado') NOT NULL,
     idrol INT(11) UNSIGNED NOT NULL,
     idDireccion INT(11) UNSIGNED,
     CONSTRAINT fk_User_Direccion FOREIGN KEY (idDireccion) REFERENCES Direccion(idDireccion) ON UPDATE CASCADE ON DELETE RESTRICT,
