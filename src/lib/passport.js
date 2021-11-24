@@ -18,23 +18,28 @@ passport.use('local.signin', new LocalStrategy({
 
         const rol_consult = await pool.query('SELECT * FROM rol WHERE idrol = ?', [user.idrol]);
             const rol = rol_consult[0];
+            
 
         if (validPassword) {
-            if (rol.rol == 'cliente') {
-                user.rolCliente = true;
-                console.log('cliente');
+            
+            if(rol.estado == 'Activo'){
+                console.log(rol);
+                if (rol.rol == 'cliente') {
+                    user.rolCliente = true;
+                    console.log('cliente');
+                }
+                if (rol.rol == 'trabajador') {
+                    user.rolTrabajador = true;
+                    console.log('trabajador');
+                }
+                if (rol.rol == 'administrador') {
+                    user.rolAdministrador = true;
+                    console.log('administrador');
+                }
+                done(null, user, req.flash('success', 'Welcome ' + user.nombre));
+            } else {
+                done(null, false, req.flash('message', 'La cuenta no esta activada'));
             }
-            if (rol.rol == 'trabajador') {
-                user.rolTrabajador = true;
-                console.log('trabajador');
-            }
-            if (rol.rol == 'administrador') {
-                user.rolAdministrador = true;
-                console.log('administrador');
-            }
-            //done(null, false, req.flash('message', 'La cuenta no esta activada'));
-            done(null, user, req.flash('success', 'Welcome ' + user.nombre));
-
         } else {
             done(null, false, req.flash('message', 'Incorrect Password'));
         }
