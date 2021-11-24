@@ -16,8 +16,25 @@ passport.use('local.signin', new LocalStrategy({
         const user = rows[0];
         const validPassword = await helpers.matchPassword(password, user.password);
 
+        const rol_consult = await pool.query('SELECT * FROM rol WHERE idrol = ?', [user.idrol]);
+            const rol = rol_consult[0];
+
         if (validPassword) {
-            done(null, user, req.flash('success', 'Welcome' + user.name));
+            if (rol.rol == 'cliente') {
+                user.rolCliente = true;
+                console.log('cliente');
+            }
+            if (rol.rol == 'trabajador') {
+                user.rolTrabajador = true;
+                console.log('trabajador');
+            }
+            if (rol.rol == 'administrador') {
+                user.rolAdministrador = true;
+                console.log('administrador');
+            }
+            //done(null, false, req.flash('message', 'La cuenta no esta activada'));
+            done(null, user, req.flash('success', 'Welcome ' + user.nombre));
+
         } else {
             done(null, false, req.flash('message', 'Incorrect Password'));
         }

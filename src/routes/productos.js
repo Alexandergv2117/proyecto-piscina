@@ -20,7 +20,7 @@ router.post('/add', async (req, res) => {
         descripcion
     };
 
-    await pool.query('INSERT INTO productos set ?', [newProducto]);
+    await pool.query('INSERT INTO productos SET ?', [newProducto]);
 
     req.flash('success', 'Producto guardado');
 
