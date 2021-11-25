@@ -35,8 +35,13 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-router.get('/home', isLoggedIn, (req, res) => {
-    res.render('home/home');
+router.get('/home', (req, res) => {
+    if (req.user.rolAdministrado) {
+        res.render('dashboard/index');
+    } else {
+        res.render('home/home');
+    }
+
 });
 
 
