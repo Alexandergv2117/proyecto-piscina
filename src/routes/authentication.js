@@ -11,7 +11,7 @@ router.get('/signup', isNotLoggedIn,(req, res) => {
 
 
 router.post('/signup', passport.authenticate('local.signup', {
-    successRedirect: '/profile',
+    successRedirect: '/home',
     failureRedirect: '/signup',
     failureFlash: true
 }));
@@ -23,7 +23,7 @@ router.get('/signin', isNotLoggedIn, (req, res) => {
 
 router.post('/signin', (req, res, next) => {
     passport.authenticate('local.signin', {
-        successRedirect: '/profile',
+        successRedirect: '/home',
         failureRedirect: '/signin',
         failureFlash: true
     })(req, res, next);
@@ -35,8 +35,8 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-router.get('/profile', isLoggedIn, (req, res) => {
-    res.render('profile/profile');
+router.get('/home', isLoggedIn, (req, res) => {
+    res.render('home/home');
 });
 
 

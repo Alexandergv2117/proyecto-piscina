@@ -11,8 +11,8 @@ CREATE TABLE Rol (
     estado enum('Activo','Desactivado') NOT NULL
 );
 
-CREATE TABLE Direccion (
-    idDireccion INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE direccion (
+    iddireccion INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     calle VARCHAR(50) NOT NULL,
     MZ INT(10) NOT NULL,
     SMZ INT(10) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE Direccion (
     CP INT NOT NULL
 );
 
-CREATE TABLE User(
+CREATE TABLE users(
     idUser INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(50) NOT NULL,
     apellido_paterno VARCHAR(50) NOT NULL,
@@ -40,8 +40,8 @@ CREATE TABLE User(
     fecha_registro TIMESTAMP NOT NULL DEFAULT current_timestamp
 );
 
-CREATE TABLE Maquina(
-    idMaquina INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE maquina(
+    idmaquina INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL
 );
 
@@ -69,8 +69,8 @@ CREATE TABLE mantenimiento_maquinas (
     CONSTRAINT fk_mantenimiento_maquinas__Maquina FOREIGN KEY (idMaquina) REFERENCES Maquina(idMaquina) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
-CREATE TABLE Servicio_piscina (
-    idServicio_piscina INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE servicio_piscina (
+    idservicio_piscina INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nombre ENUM('cepillado', 'filtrado', 'aspirado') NOT NULL,
     precio DEC(6,2),
     estado ENUM('pendiente', 'realizando', 'completado') NOT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE Servicio_piscina (
 );
 
 CREATE TABLE mantenimiento_piscina (
-    idMantenimiento_piscina INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    idmantenimiento_piscina INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     idpiscina INT(11) UNSIGNED NOT NULL,
     idServicio_piscina INT(11) UNSIGNED NOT NULL,
     idUser INT(11) UNSIGNED NOT NULL,
@@ -89,14 +89,14 @@ CREATE TABLE mantenimiento_piscina (
 );
 
 --//////////TIENDA
-CREATE TABLE Carrito (
-    idCarrito INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    idUser INT(11) UNSIGNED NOT NULL,
+CREATE TABLE carrito (
+    idcarrito INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    iduser INT(11) UNSIGNED NOT NULL,
     CONSTRAINT fk_Carrito_User FOREIGN KEY (idUser) REFERENCES User(idUser) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-CREATE TABLE Compra (
-    idCompra INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE compra (
+    idcompra INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     estado ENUM('pendiente', 'aceptado', 'entregado') NOT NULL,
     total DEC(6,2) NOT NULL,
     fecha_compra TIMESTAMP NOT NULL DEFAULT current_timestamp,

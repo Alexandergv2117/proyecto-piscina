@@ -23,18 +23,14 @@ passport.use('local.signin', new LocalStrategy({
         if (validPassword) {
             
             if(rol.estado == 'Activo'){
-                console.log(rol);
                 if (rol.rol == 'cliente') {
                     user.rolCliente = true;
-                    console.log('cliente');
                 }
                 if (rol.rol == 'trabajador') {
                     user.rolTrabajador = true;
-                    console.log('trabajador');
                 }
                 if (rol.rol == 'administrador') {
                     user.rolAdministrador = true;
-                    console.log('administrador');
                 }
                 done(null, user, req.flash('success', 'Welcome ' + user.nombre));
             } else {
@@ -84,6 +80,10 @@ passport.use('local.signup', new LocalStrategy({
 
     const result = await pool.query('INSERT INTO user SET ?', [newUser]);
     newUser.id = result.insertId;
+
+    if (estado == 'Desavtivado') {
+        done(null, false, req.flash('message', 'La cuenta aun no esta activada'));
+    }
 
     return done(null, newUser);
 }));

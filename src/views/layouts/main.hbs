@@ -22,33 +22,18 @@
     
 </head>
 <body>
-    {{#if user}}
-        {{#if user.rolCliente}}
-
-            {{> C_navigations}}
-            {{{body}}}
-
-        {{/if}} 
-
-        {{#if user.rolTrabajador}}
-
-            {{> T_navigations}}
-            {{{body}}}
-
-        {{/if}}
 
         {{#if user.rolAdministrador}}
 
+            {{> dashboard}}
+
+        {{else}}
+            {{> navigation}}
+            {{> message}}
             {{{body}}}
 
-        {{/if}}
-    {{else}}
+         {{/if}}
 
-    {{> navigation}}
-    {{> message}}
-    {{{body}}}
-
-    {{/if}}
         
     
     <!--SCRIPTS-->
