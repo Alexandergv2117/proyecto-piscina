@@ -1,4 +1,4 @@
-//*
+/*
 module.exports = {
     database: {
         host: 'localhost',
@@ -8,7 +8,7 @@ module.exports = {
     }
 };
 //*/
-/*
+//*
 module.exports = {
     database: {
         host: '35.184.11.1',
