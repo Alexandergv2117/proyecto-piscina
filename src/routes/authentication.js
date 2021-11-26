@@ -5,19 +5,20 @@ const passport = require('passport');
 const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
 
 //Sign Up
-router.get('/signup', isNotLoggedIn,(req, res) => {
+router.get('/signup',(req, res) => {
     res.render('auth/signup');
 });
 
 
 router.post('/signup', passport.authenticate('local.signup', {
-    successRedirect: '/home',
+    successRedirect: '/signin',
     failureRedirect: '/signup',
     failureFlash: true
 }));
 
 //Sign In
-router.get('/signin', isNotLoggedIn, (req, res) => {
+router.get('/signin', (req, res) => {
+    req.logOut();
     res.render('auth/signin');
 });
 
@@ -36,14 +37,9 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/home', (req, res) => {
-    if (req.user.rolAdministrado) {
-        res.render('dashboard/index');
-    } else {
         res.render('home/home');
-    }
 
 });
-
 
 
 module.exports = router;

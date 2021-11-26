@@ -81,8 +81,8 @@ passport.use('local.signup', new LocalStrategy({
     const result = await pool.query('INSERT INTO user SET ?', [newUser]);
     newUser.id = result.insertId;
 
-    if (estado == 'Desavtivado') {
-        done(null, false, req.flash('message', 'La cuenta aun no esta activada'));
+    if (estado == 'Desactivado') {
+        return done(null, false, req.flash('message', 'La cuenta aun no esta activada'));
     }
 
     return done(null, newUser);
