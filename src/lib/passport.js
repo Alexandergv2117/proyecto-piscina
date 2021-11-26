@@ -32,15 +32,15 @@ passport.use('local.signin', new LocalStrategy({
                 if (rol.rol == 'administrador') {
                     user.rolAdministrador = true;
                 }
-                done(null, user, req.flash('success', 'Welcome ' + user.nombre));
+                done(null, user, req.flash('success', 'Bienvenido ' + user.nombre));
             } else {
                 done(null, false, req.flash('message', 'La cuenta no esta activada'));
             }
         } else {
-            done(null, false, req.flash('message', 'Incorrect Password'));
+            done(null, false, req.flash('message', 'Contraseña incorrecta'));
         }
     } else {
-        return done(null, false, req.flash('message',  'The email does not exist'));
+        return done(null, false, req.flash('message',  'Email no esta registrado'));
     }
 }));
 
@@ -51,6 +51,15 @@ passport.use('local.signup', new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, async (req, email, password, done) => {
+
+    //Valida si el email ya esat registrado
+    const validemail = await helpers.validemail(email);
+
+    if(validemail){
+        return done(null, false, req.flash('message', 'El email ya esta registrado'));
+    }
+
+    //activa o desactiva la cuenta
     var  estado;
     const { nombres, apellidos, telefono, rol} = req.body;
 
@@ -65,8 +74,8 @@ passport.use('local.signup', new LocalStrategy({
     };
 
     const result_rol = await pool.query('INSERT INTO rol SET ? ', [newRol]);
-    console.log(result_rol);
 
+    //Registra el usaurio
     const newUser = {
         nombre: nombres,
         apellido_paterno: apellidos,
@@ -85,7 +94,7 @@ passport.use('local.signup', new LocalStrategy({
         return done(null, false, req.flash('message', 'La cuenta aun no esta activada'));
     }
 
-    return done(null, newUser);
+    return done(null, newUser, req.flash('success', '!!Registro realizado con exito!!  Favor de logeate para iniciar sesión'));
 }));
 
 /*passport.serializeUser((user, done) => {
