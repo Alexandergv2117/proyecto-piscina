@@ -18,7 +18,6 @@ passport.use('local.signin', new LocalStrategy({
 
         const rol_consult = await pool.query('SELECT * FROM rol WHERE idrol = ?', [user.idrol]);
             const rol = rol_consult[0];
-            
 
         if (validPassword) {
             
@@ -91,6 +90,7 @@ passport.use('local.signup', new LocalStrategy({
     newUser.id = result.insertId;
 
     if (estado == 'Desactivado') {
+        helpers.sendEmail(newUser.email,'Registro a happy pool','Hola ' + newUser.nombre + ' bienvenido a HappyPool, Su registro a sido exitoso, su cuenta sera verificada y activada a la brevedad');
         return done(null, false, req.flash('message', 'La cuenta aun no esta activada'));
     }
 

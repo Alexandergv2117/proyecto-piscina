@@ -1,6 +1,18 @@
 const bcrypt = require('bcryptjs');
 const pool = require('../database');
 
+//Requerimos el paquete
+var nodemailer = require('nodemailer');
+
+//Creamos el objeto de transporte
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'roboga2117@gmail.com',
+    pass: 'agua pasa por mi casa'
+  }
+});
+
 const helpers = {};
 
 helpers.encryptPassword = async (password) => {
@@ -28,7 +40,23 @@ helpers.validemail = async (email) => {
         }
         return false;
     }
-    
+};
+
+helpers.sendEmail = async (email, subject, message) => {
+    var mailOptions = {
+        from: 'roboga2117@gmail.com',
+        to: email,
+        subject: subject,
+        text: message
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email enviado: ' + info.response);
+        }
+      });
 };
 
 module.exports = helpers;
