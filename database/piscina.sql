@@ -14,13 +14,12 @@ CREATE TABLE Rol (
 CREATE TABLE direccion (
     iddireccion INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     calle VARCHAR(50) NOT NULL,
-    MZ INT(10) NOT NULL,
-    SMZ INT(10) NOT NULL,
-    NumInt VARCHAR(10),
-    NumExt VARCHAR(10) NOT NULL,
-    Fracc VARCHAR(50) NOT NULL,
-    Estado VARCHAR(50) NOT NULL,
-    Municipio VARCHAR(80) NOT NULL,
+    mz INT(10) NOT NULL,
+    smz INT(10) NOT NULL,
+    numint VARCHAR(10),
+    numext VARCHAR(10) NOT NULL,
+    fracc VARCHAR(50) NOT NULL,
+    estado VARCHAR(50) NOT NULL,
     Ciudad VARCHAR(60) NOT NULL,
     CP INT NOT NULL
 );

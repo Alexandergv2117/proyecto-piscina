@@ -59,6 +59,8 @@ app.use(require('./routes/authentication'));
 app.use('/productos',require('./routes/productos'));
 app.use('/admin',require('./routes/admin'));
 app.use('/servicios',require('./routes/servicios'));
+app.use('/direccion',require('./routes/direccion'));
+app.use('/cliente',require('./routes/clientes'));
 
 //Public
 app.use(express.static(path.join(__dirname, 'public')));

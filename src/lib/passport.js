@@ -20,6 +20,9 @@ passport.use('local.signin', new LocalStrategy({
             const rol = rol_consult[0];
 
         if (validPassword) {
+            if (user.idDireccion == null) {
+                user.Direccion = true;
+            }
             
             if(rol.estado == 'Activo'){
                 if (rol.rol == 'cliente') {
@@ -31,6 +34,7 @@ passport.use('local.signin', new LocalStrategy({
                 if (rol.rol == 'administrador') {
                     user.rolAdministrador = true;
                 }
+                
                 done(null, user, req.flash('success', 'Bienvenido ' + user.nombre));
             } else {
                 done(null, false, req.flash('message', 'La cuenta no esta activada'));
@@ -51,7 +55,7 @@ passport.use('local.signup', new LocalStrategy({
     passReqToCallback: true
 }, async (req, email, password, done) => {
 
-    //Valida si el email ya esat registrado
+    //Valida si el email ya esta registrado
     const validemail = await helpers.validemail(email);
 
     if(validemail){
