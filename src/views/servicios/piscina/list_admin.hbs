@@ -1,6 +1,6 @@
 <div class="container p-4">
     <div class="row" >
-        {{#each productos}}
+        {{#each servicios_piscina}}
                 <div class="col-md-3 m-2">
                     <div class="card text-center">
                         <div class="card-body">
@@ -8,17 +8,18 @@
                                 {{nombre}}
                             </h3>
                             <hr>
-                            <p class="text-left">Precio: {{precio}}</p>
-                            <p class="text-left">Stock: {{stock}}</p>
-                            <a href="/productos/delete/{{idproductos}}" class="btn btn-danger mb-1">Delete</a>
-                            <a href="/productos/edit/{{idproductos}}" class="btn btn-outline-info">Edit</a>
+                            <p class="text-left">Precio: {{precio}}m³</p>
+                            <p class="text-left">{{descripcion}}</p>
+                            <a href="/servicios/piscina/eliminar/{{idServicio_piscina}}" class="btn btn-danger mb-1">Delete</a>
+                            <a href="/servicios/piscina/editar/{{idServicio_piscina}}" class="btn btn-outline-info">Edit</a>
                         </div>
                     </div>
                 </div>
         {{else}}
         <div class="col-md-4 mx-auto">
             <div class="card card-body text-center">
-                <p>No hay productos</p>
+                <p>No hay servicio disponibles</p>
+                <a href="/servicios/piscina/add">Agraga uno</a>
             </div>
         </div>
         {{/each}}

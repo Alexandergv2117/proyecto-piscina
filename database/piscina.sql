@@ -71,11 +71,9 @@ CREATE TABLE mantenimiento_maquinas (
 
 CREATE TABLE servicio_piscina (
     idservicio_piscina INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    nombre ENUM('cepillado', 'filtrado', 'aspirado') NOT NULL,
-    precio DEC(6,2),
-    estado ENUM('pendiente', 'realizando', 'completado') NOT NULL,
-    dia ENUM('lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado') NOT NULL,
-    hora TIME NOT NULL
+    nombre VARCHAR(100) NOT NULL,
+    precio DEC(6,2) NOT NULL,
+    descripcion TEXT NOT NULL
 );
 
 CREATE TABLE mantenimiento_piscina (
@@ -83,6 +81,10 @@ CREATE TABLE mantenimiento_piscina (
     idpiscina INT(11) UNSIGNED NOT NULL,
     idServicio_piscina INT(11) UNSIGNED NOT NULL,
     idUser INT(11) UNSIGNED NOT NULL,
+    precio DEC(6,2),
+    estado ENUM('pendiente', 'realizando', 'completado') NOT NULL,
+    dia ENUM('lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado') NOT NULL,
+    hora TIME NOT NULL,
     CONSTRAINT fk_mantenimiento_piscina_Piscina FOREIGN KEY (idpiscina) REFERENCES piscina(idpiscina),
     CONSTRAINT fk_mantenimiento_piscina_Servicio_piscina FOREIGN KEY (idServicio_piscina) REFERENCES Servicio_piscina(idServicio_piscina),
     CONSTRAINT fk_mantenimiento_piscina_User FOREIGN KEY (idUser) REFERENCES User(idUser)
