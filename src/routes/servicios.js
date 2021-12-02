@@ -146,15 +146,13 @@ router.post('/piscina/confirmar/:idpiscina/:idServicio_piscina/:precio/:dia/:hor
     const newMantenimiento = {
         idpiscina, 
         idServicio_piscina,
-        iduser: req.user.idUser,
         precio,
         estado: 1, 
         dia, 
         hora
     };
-    console.log(newMantenimiento);
 
-    const resultQuery = await pool.query('INSERT INTO mantenimiento_piscina SET ?', [newMantenimiento]);
+    await pool.query('INSERT INTO mantenimiento_piscina SET ?', [newMantenimiento]);
 
     res.redirect('/servicios/misservicios');
 
@@ -166,7 +164,6 @@ router.get('/misservicios', async (req, res) => {
 
     const misServicios = await pool.query('SELECT piscina.idpiscina AS idpiscina, piscina.nombre AS nombre_piscina, piscina.tipo_piscina AS tipo_piscina, piscina.volumen AS piscina_volumen, piscina.idDireccion AS idDireccion, mantenimiento_piscina.idMantenimiento_piscina AS idMantenimiento_piscina, mantenimiento_piscina.precio AS precio, mantenimiento_piscina.estado AS estado_servicio, mantenimiento_piscina.dia AS dia, mantenimiento_piscina.hora AS hora, servicio_piscina.idServicio_piscina AS idServicio_piscina, servicio_piscina.nombre AS nombre_servicio, servicio_piscina.descripcion AS descripcion_servicio FROM piscina INNER JOIN mantenimiento_piscina ON piscina.idpiscina = mantenimiento_piscina.idpiscina INNER JOIN servicio_piscina ON mantenimiento_piscina.idServicio_piscina = servicio_piscina.idServicio_piscina WHERE piscina.idUser = ?', [req.user.idUser]);
 
-    console.log(misServicios);
     res.render('servicios/piscina/misServicios', { misServicios });
 });
 

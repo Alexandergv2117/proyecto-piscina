@@ -79,7 +79,7 @@ CREATE TABLE mantenimiento_piscina (
     idmantenimiento_piscina INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     idpiscina INT(11) UNSIGNED NOT NULL,
     idServicio_piscina INT(11) UNSIGNED NOT NULL,
-    idUser INT(11) UNSIGNED NOT NULL,
+    idUser INT(11) UNSIGNED,
     precio DEC(6,2),
     estado ENUM('pendiente', 'realizando', 'completado') NOT NULL,
     dia ENUM('lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado') NOT NULL,
