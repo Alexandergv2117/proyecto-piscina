@@ -1,0 +1,29 @@
+<div class="box-body p-4">
+    <table id="tabla_asistencias"
+        class="table table-bordered table-condensed table-hover responsive"
+            cellspacing="0" width="100%">
+              <thead>
+                <tr>
+                 <th class="text-center">Nombre</th>
+                 <th class="text-center">Apellidos</th>
+                 <th class="text-center">Telefono</th>
+                 <th class="text-center">Email</th>
+                 <th class="text-center">Rol</th>
+                 <th class="text-center">Status</th>
+               </tr>
+            </thead>
+            {{#each users}}
+              <tbody>
+                <td>{{nombre}}</td>
+                <td>{{apellidos}}</td>
+                <td class="text-center">{{telefono}}</td>
+                <td>{{email}}</td>
+                <td class="">{{rol}}</td>
+                {{#if Status}}
+                  <td class="text-center"><a href="/admin/cuentas/desactivar/{{idrol}}" class="btn btn-success">Activo</a></td>
+                {{else}}
+                  <td class="text-center"><a href="/admin/cuentas/activar/{{idrol}}" class="btn btn-danger">Desactivado</a></td>
+                {{/if}}
+                </tbody>
+            {{/each}}
+    </table>
