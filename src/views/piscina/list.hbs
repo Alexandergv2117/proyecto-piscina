@@ -1,0 +1,32 @@
+<div class="container p-4">
+    <div class="row" >
+        {{#each piscinas}}
+                <div class="col-md-4 mx-auto">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                {{nombre}}
+                            </h3>
+                            <hr>
+                            <p class="text-left">Tipo: {{tipo_piscina}}</p>
+                            <p class="text-left">Volumen: {{volumen}}m³</p>
+                            <hr>
+                            <div class="col-md text-center">
+                                <a href="/piscina/delete/{{idpiscina}}" class="btn btn-danger">Delete</a>
+                                <a href="/piscina/edit/{{idpiscina}}" class="btn btn-info">Edit</a>
+                                {{#if direccion}}
+                                <a href="/piscina/direccion/{{idpiscina}}" class="btn btn-warning">Agregar direccion</a>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        {{else}}
+        <div class="col-md-4 mx-auto">
+            <div class="card card-body text-center">
+                <p>No tienes piscinas agragadas</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

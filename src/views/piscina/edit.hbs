@@ -1,0 +1,36 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3>Editar datos <br>Piscina</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/piscina/edit/{{piscina.idpiscina}}" method="POST">
+                        <div class="form-group">
+                            <input type="text" value="{{piscina.nombre}}" class="form-control" name="nombre" placeholder="Nombre de la psicina" autofocus>
+                         </div>
+                        <div class="form-group">
+                            <h3 class="h6">¿Que tipo de piscina tiene?</h3>
+                            <select name="tipo_piscina" class="form-control">
+                                <option selected="true" disabled="disable">{{piscina.tipo_piscina}}</option>
+                                <option>Piscina de obra</option>
+                                <option>Piscina prefabricada</option>
+                                <option>Piscina natural</option>
+                                <option>Piscina de arena</option>
+                                <option>Piscina de microsemento</option>
+                                <option>Piscina transparente</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" value="{{piscina.volumen}}" class="form-control" name="volumen" placeholder="Volumen de la piscina" step="0.01">
+                         </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">Editar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

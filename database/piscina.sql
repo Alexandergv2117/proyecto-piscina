@@ -47,9 +47,9 @@ CREATE TABLE maquina(
 CREATE TABLE piscina (
     idpiscina INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR (50) NOT NULL,
-    tipo_piscina ENUM('piscina de obra','Piscina prefabricada','piscina natural','piscina desbordante','piscina de arena','piscina de microsemento','piscina transparente') NOT NULL,
-    volumen DEC(6,2),
-    idDireccion INT(11) UNSIGNED NOT NULL,
+    tipo_piscina ENUM('piscina de obra','Piscina prefabricada','piscina natural','piscina de arena','piscina de microsemento','piscina transparente') NOT NULL,
+    volumen DEC(6,2) NOT NULL,
+    idDireccion INT(11) UNSIGNED,
     idUser INT(11) UNSIGNED NOT NULL,
     fecha_registro TIMESTAMP NOT NULL DEFAULT current_timestamp,
     CONSTRAINT fk_Piscina_Direccion FOREIGN KEY (idDireccion) REFERENCES Direccion(idDireccion) ON UPDATE CASCADE ON DELETE RESTRICT,

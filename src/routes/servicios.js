@@ -69,7 +69,6 @@ router.post('/piscina/editar/:id', async (req, res) => {
         precio,
         descripcion
     };
-    console.log('hola');
     
     await pool.query('UPDATE servicio_piscina SET ? WHERE idservicio_piscina = ?', [newServicio, id]);
 
