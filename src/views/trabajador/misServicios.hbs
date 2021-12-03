@@ -1,0 +1,38 @@
+<div class="container p-4">
+    <div class="row" >
+        {{#each Servicios}}
+                <div class="col-md-4 m-2">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h3 class="card-title h4">Datos del servicio</h3>
+                            <hr>
+                            <p class="text-left">Servicio: {{nombre_servicio}}</p>
+                            <p class="text-left">Descripcion servicio: {{descripcion_servicio}}</p>
+                            <p class="text-left">Estado: {{estado_matenimiento}}</p>
+                            <hr>
+                            <h3 class="h4">Datos Piscina</h3>
+                            <p class="text-left">Nombre: {{nombre_piscina}}</p>
+                            <p class="text-left">Tipo de piscina: {{tipo_piscina}}</p>
+                            <p class="text-left">Volumen: {{volumen_piscina}}m³</p>
+                            <hr>
+                            <h3 class="h4">Visita</h3>
+                            <p class="text-left">Dia: {{dia}}     <br>    Hora: {{hora}}</p>
+                            
+                            {{#if pendiente}}
+                                <a href="/trabajador/servicio/realizar/{{idMantenimiento_piscina}}" class="btn btn-secondary btn-block mb-1">Realizar</a>
+                            {{/if}}
+                            {{#if realizando}}
+                                <a href="/trabajador/servicio/completado/{{idMantenimiento_piscina}}" class="btn btn-success btn-block mb-1">Completado</a>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+        {{else}}
+        <div class="col-md-4 mx-auto">
+            <div class="card card-body text-center">
+                <p>No tienes Servicios</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

@@ -62,6 +62,7 @@ app.use('/servicios',require('./routes/servicios'));
 app.use('/direccion',require('./routes/direccion'));
 app.use('/cliente',require('./routes/clientes'));
 app.use('/piscina',require('./routes/piscina'));
+app.use('/trabajador',require('./routes/trabajador'));
 
 //Public
 app.use(express.static(path.join(__dirname, 'public')));
