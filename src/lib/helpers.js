@@ -8,8 +8,8 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'roboga2117@gmail.com',
-    pass: 'agua pasa por mi casa'
+    user: 'happypoollimpieza@gmail.com',
+    pass: 'XiuHotjeje'
   }
 });
 
@@ -44,7 +44,7 @@ helpers.validemail = async (email) => {
 
 helpers.sendEmail = async (email, subject, message) => {
     var mailOptions = {
-        from: 'roboga2117@gmail.com',
+        from: 'happypoollimpieza@gmail.com',
         to: email,
         subject: subject,
         text: message

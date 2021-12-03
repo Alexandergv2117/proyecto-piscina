@@ -1,0 +1,126 @@
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h3>cotizaciones</h3>
+                    </div>
+                    <ul class="nav nav-tabs nav-fill" id="cotizaciones" role="tablist">
+						<li class="nav-item align-middle" role="presentation">
+							<button class="nav-link active" id="lavado-tab" data-bs-toggle="tab" data-bs-target="#lavado" type="button" role="tab" aria-controls="lavado" aria-selected="true">Servicio de Lavado</button>
+						</li>
+						<li class="nav-item" role="presentation">
+						    <button class="nav-link" id="mantenimiento-tab" data-bs-toggle="tab" data-bs-target="#mantenimiento" type="button" role="tab" aria-controls="mantenimiento" aria-selected="false">Servicio de mantenimiento de maquinaria</button>
+						</li>
+					</ul>
+					<div class="tab-content" id="cotizacionesContent">
+					  <div class="tab-pane fade show active" id="lavado" role="tabpanel" aria-labelledby="lavado-tab">
+					  	<br>
+					  	<p>
+					  		Este servicio incluye los servicios de cepillado, aspirado y filtrado y se llevara acabo durante 3 días realizando un servicio por día <br>
+					  	</p>
+<!--Formulario de limpieza de pisina-->
+					  	<form action="/cotizarp" method="post">
+                            <div class="card-body">
+                            	<h6> <strong> los Elementos marcados con * son obligatorio </strong></h6> <br> 
+                            	<div class="form-group">
+                            		<label for="nombrectz">Nombre del Solicitante *</label>
+                            		<input type="text" name="nombrectz" placeholder="Nombre Completo" class="form-control" required>
+                            	</div>
+                            	<br>
+                            	<div class="form-group">
+                            		<label for="direccionctz" >Direccion del Solicitante *</label>
+                            		<input type="text" name="direccionctz" placeholder="Direccion de la pisina" class="form-control" required>
+                            	</div>
+                            	<br>
+                            	<div class="form-group">
+                            		<label for="emailctz">Correo Electronico del Solicitante *</label>
+                                    <input type="email" name="emailctz" placeholder="Email" class="form-control" required>
+                                </div>
+                                <br>
+                                <label for="datosPisi">Datos generales de la pisina *</label>
+                                <div class="row" id="datosPisi">
+                                	<div class="form-group col-md-4 mx-auto" >
+                                		<input type="number" name="largoP" placeholder="Largo"  class="form-control" min="1" required>
+                                	</div>
+                                	<div class="form-group col-md-4 mx-auto" >
+                                		<input type="number" name="anchoP" placeholder="Ancho"  class="form-control" min="1" required>
+                                	</div>
+                                	<div class="form-group col-md-4 mx-auto" >
+                                		<input type="number" name="altoP" placeholder="Altura"  class="form-control" min="1" required>
+                                	</div>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                	<label for="observaPs">Otros datos de la pisina</label>
+                                	<textarea id="observaPs" placeholder="Desniveles, escaleras, etc." class="form-control" style="height: 75px"></textarea>
+                                </div>
+                                 <br><br>
+                                <div class="form-check">
+                                	<p>
+                                		<input class="form-check-input" type="checkbox" value="" id="condicionesInva" required> Acepto terminos y condiciones
+								    	<div class="invalid-feedback">
+								        Debes aceptar terminos y condiciones.
+								    	</div>
+                                	</p>
+							    </div>
+                                <div class="form-group">
+                                    <button class="btn btn-success btn-block">
+                                        Cotizar Limpieza
+                                    </button>
+                                </div>
+                            </div>
+                    	</form>
+						</div>
+					   <div class="tab-pane fade" id="mantenimiento" role="tabpanel" aria-labelledby="mantenimiento-tab"> 
+					   	<br>
+					   	<p>
+					   		La cotización de equipo especializado solo puede llevarse acabo por expertos		
+					   	</p>
+<!--formulario de reparacion de Maquinaria-->
+					   	<form action="/cotizarm" method="post">
+                            <div class="card-body">
+                            	<h6> <strong> los Elementos marcados con * son obligatorio </strong></h6> <br>
+                            	<div class="form-group">
+                            		<label for="nombrectz">Nombre del Solicitante *</label>
+                            		<input type="text" name="nombrectz" placeholder="Nombre Completo" class="form-control" required>
+                            	</div>
+                            	<br>
+                            	<div class="form-group">
+                            		<label for="direccionctz" >Direccion del Solicitante *</label>
+                            		<input type="text" name="direccionctz" placeholder="Direccion de la pisina" class="form-control" required>
+                            	</div>
+                            	<br>
+                            	<div class="form-group">
+                            		<label for="emailctz">Correo Electronico del Solicitante *</label>
+                                    <input type="email" name="emailctz" placeholder="Email" class="form-control" required>
+                                </div>
+
+                            	<div class="form-group">
+                            		<label for="eqipoP">Nombre de la parte o pieza</label>
+                            		<input type="text" name="eqipoP" placeholder="Nombre del equipo qu necesite reparación" class="form-control">
+                            	</div>
+                            	<div class="form-group">
+                            		<label for="descripEPs">Descripión *</label>
+                                	<textarea id="descripEPs" placeholder="Breve descripción del fallo o problema" class="form-control" style="height: 100px"></textarea>
+                            	</div>
+                            	<br>
+                            	<div class="form-check">
+                                	<p style="text-align: left;">
+                                		<input class="form-check-input" type="checkbox" value="" id="condicionesInva" required> Acepto terminos y condiciones
+                                	</p>
+							    </div>
+							    <div class="form-group">
+                                    <button class="btn btn-success btn-block">
+                                        Cotizar Repación
+                                    </button>
+                                </div>
+                            </div> 
+						</form>
+					   </div>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
