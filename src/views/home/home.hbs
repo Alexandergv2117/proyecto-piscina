@@ -1,6 +1,79 @@
 
 {{#if user.rolCliente}}
+ <!-- Saludos -->
+    <div class="container p-2" style="text-align: center;">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h1> <strong> Bienvenidos a HappyPool</strong></h1>
+            </div>
+        </div>
+    </div>
+    <!-- Carucel -->
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mx-auto" style="align-items: center;">
+                <div id="carouseClientesDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouseClientesDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouseClientesDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouseClientesDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="5000">
+                            <img src="/img/pexels-pixabay-261156.jpg" class="d-block w-100" alt="MantenimientoPisina" style="max-width:100%;">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img class="img-fluid" style="max-height: 640px;" src="/img/pexels-recal-media-60217.jpg" alt="limpiezaPisinaDual">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" style="max-height: 640px;" src="/img/pexels-andrew-seto-5597379.jpg" alt="limpiezaPisina">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouseClientesDark" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouseClientesDark" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div> <br><br>
+        <div class="row">
+            <div class="col-md-12 mx-auto " style="color:white;">
+                <h3> Somos una pagína creada con el objetivo de conectar de manera mas eficiente a los poseedores de pisinas de los proveedores de servicios particulares tanto en la limpieza como en la reparación</h3>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <!-- Pie de Pagina -->
+    <footer style="background-color: #000" class="opacity-75">
+        <div class="container-fluid">
 
+            <div class="row">
+                <div class="col-4 mx-auto">
+                    <h5 style="color:blue;">Sitio: </h5>
+                    <a href="faqs.html">Pregutas Frecuentes</a> <br>
+                    <a href="cotizacion.html">cotización</a> <br>
+                    <a href="sigin.html">SingIn</a> <br>
+                    <a href="singup.html">SingUp</a>
+                </div>
+                <div class="col-8 mx-auto text-center">
+                     <h5 style="color:blue;">Redes Sociales: </h5>
+                    <a href="https://www.facebook.com" >
+                        <ion-icon name="logo-facebook" class="pantalla-inicio-iconBx"></ion-icon>
+                    </a> <br>
+                    <a href="https://www.instagram.com">
+                        <ion-icon name="logo-instagram" class="pantalla-inicio-iconBx"></ion-icon>
+                    </a> <br>
+                    <a href="https://twitter.com/">
+                        <ion-icon name="logo-twitter" class="pantalla-inicio-iconBx"></ion-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 {{/if}}
 
 {{#if user.rolTrabajador}}

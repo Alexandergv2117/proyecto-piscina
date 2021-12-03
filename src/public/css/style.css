@@ -61,6 +61,13 @@ body {
     color: #fbfcfd;
     opacity: 1;
 }
+.pantalla-inicio-iconBr{
+    width: 25px;
+    cursor: pointer;
+    font-size: 3.5em;
+    color: #fbfcfd;
+    opacity: 1;
+}
 .pantalla-inicio-iconBx:hover{
     opacity: .5;
 }
