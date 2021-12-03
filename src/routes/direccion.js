@@ -2,7 +2,9 @@ const express = require('express');
 const pool = require('../database');
 const router = express.Router();
 
-router.get('/add', (req, res) => {
+const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
+
+router.get('/add', isLoggedIn, (req, res) => {
     res.render('direccion/add');
 });
 

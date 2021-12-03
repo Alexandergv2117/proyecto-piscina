@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
+const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
+
 const pool = require('../database');
 
 //mostrar piscinas segun el usuario
-router.get('/', async (req, res) => {
+router.get('/', isLoggedIn, async (req, res) => {
     const piscinas = await pool.query('SELECT * FROM piscina WHERE idUser = ?', [req.user.idUser]);
 
     for (var i = 0; i < piscinas.length; i++) {
@@ -103,6 +105,8 @@ router.post('/direccion/:idpiscina', async (req, res) => {
     console.log(idDireccion);
 
     await pool.query('UPDATE piscina SET idDireccion = ? WHERE idpiscina = ?', [idDireccion.insertId, idpiscina]);
+
+    res.redirect('/piscina');
 });
 
 module.exports = router;

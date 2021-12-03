@@ -2,6 +2,8 @@ const express = require('express');
 const pool = require('../database');
 const router = express.Router();
 
+const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
+
 router.get('/servicios/nuevos',  async(req, res) => {
     const servicios = await pool.query('SELECT mantenimiento_piscina.idMantenimiento_piscina, mantenimiento_piscina.precio, mantenimiento_piscina.dia, mantenimiento_piscina.hora, piscina.nombre, piscina.tipo_piscina, piscina.volumen, servicio_piscina.nombre, servicio_piscina.descripcion, mantenimiento_piscina.idUser FROM servicio_piscina INNER JOIN mantenimiento_piscina ON servicio_piscina.idServicio_piscina = mantenimiento_piscina.idServicio_piscina INNER JOIN piscina ON mantenimiento_piscina.idpiscina = piscina.idpiscina');
 
@@ -60,7 +62,7 @@ router.get('/servicio/completado/:idMantenimiento_piscina', async (req, res) => 
 
     await pool.query('UPDATE mantenimiento_piscina SET estado="completado" WHERE idMantenimiento_piscina = ?', [idMantenimiento_piscina]);
 
-    res.redirect('/trabajador//misservicios');
+    res.redirect('/trabajador/misservicios');
 });
 
 
