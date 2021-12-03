@@ -1,4 +1,4 @@
-//*
+/*
 module.exports = {
     database: {
         host: 'localhost',
@@ -8,13 +8,13 @@ module.exports = {
     }
 };
 //*/
-/*
+//*
 module.exports = {
     database: {
         host: '35.184.11.1',
-        user: 'piscina_root',
-        password: '7&7lh6lB',
-        database: 'piscina'
+        user: 'piscina_2.0',
+        password: 'r2Do%y34',
+        database: 'piscina_2.0'
     }
 };
 //*/

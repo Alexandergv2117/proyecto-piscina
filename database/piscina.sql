@@ -1,5 +1,6 @@
 --Host: 35.184.11.1
 --Server del mysql: https://northmkt.com.mx:8443/smb/web/view
+--r2Do%y34
 
 CREATE DATABASE piscina;
 
